@@ -12,18 +12,4 @@ public class Demoo2Application {
 
         SpringApplication.run(Demoo2Application.class, args);
     }
-
-    @Bean
-    public CommandLineRunner runner(ClientRepository clientRepository) {
-        return new CommandLineRunner() {
-
-            @Override
-            public void run(String... args) throws Exception {
-                for (int i = 0; i < 20; i++) {
-                    Task c = new Task("name" + i +"/n", "name" + i + "@gmail.com","Task"+i);
-                    clientRepository.save(c);
-                }
-            }
-        };
-    }
-}
+ }
