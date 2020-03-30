@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 public class FindController {
+
     @Autowired
     private TaskRepository taskRepository;
 
@@ -44,14 +45,5 @@ public class FindController {
 
     }
 
-    @GetMapping("/change")
-    public void changeTask(@RequestParam Integer id, @RequestParam TaskStatus status) {
 
-        Task task = taskRepository.findById(id).get();
-
-        task.setStatus(status);
-
-
-        taskRepository.save(task);
-    }
 }
