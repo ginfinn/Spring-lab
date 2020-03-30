@@ -13,7 +13,7 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
     public List<Task> findAllByCreatedBetween(Date from, Date to);
 
-    public List<Task> findAllByNameAndCreatedBetween(String name, Date from, Date to);
+    public List<Task> findAllByNicNameAndNameAndCreatedBetween(String nicName ,String name, Date from, Date to);
 
 
 }

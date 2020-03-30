@@ -24,14 +24,14 @@ public class MainController {
     private TaskRepository taskRepository;
 
     @GetMapping("create")
-    public Integer createTask(@RequestParam String name, @RequestParam String text ) {
+    public Integer createTask(@RequestParam String nicName, @RequestParam String name, @RequestParam String text ) {
         TimeZone tz = TimeZone.getDefault();
         val now = LocalDate.now(tz.toZoneId());
 
-        if(!taskRepository.findAllByNameAndCreatedBetween(name, Date.from(now.atStartOfDay().atZone(tz.toZoneId()).toInstant()), new Date()).isEmpty()) {
+        if(!taskRepository.findAllByNicNameAndNameAndCreatedBetween(nicName,name, Date.from(now.atStartOfDay().atZone(tz.toZoneId()).toInstant()), new Date()).isEmpty()) {
             throw new IllegalArgumentException("Name already used");
         }
-        val task = Task.builder().name(name).text(text).build();
+        val task = Task.builder().nicName(nicName).name(name).text(text).build();
         return taskRepository.save(task).getId();
     }
 
@@ -45,7 +45,7 @@ public class MainController {
         Task task = taskRepository.findById(id).get();
 
         task.setStatus(status);
-        val historyTask = TaskStatusHistory.builder().newStatus(status).taskId(task.getId()).build();
+        val historyTask = TaskStatusHistory.builder().nicName(task.getNicName()).newStatus(status).taskId(task.getId()).build();
         taskStatusHistoryRepositoty.save(historyTask);
         taskRepository.save(task);
     }

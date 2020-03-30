@@ -30,4 +30,5 @@ public class TaskStatusHistory {
     private Date created = new Date();
 
     private Integer taskId  ;
+    private String nicName;
 }

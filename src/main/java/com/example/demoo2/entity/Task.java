@@ -23,6 +23,7 @@ public class Task {
     private String text;
     //    private String tag;
     private String name;
+    private String nicName;
 
     //    private String client;
 

@@ -40,7 +40,7 @@ public class FindController {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(to);
-        cal.add(Calendar.DATE, 1); 
+        cal.add(Calendar.DATE, 1);
         return taskRepository.findAllByCreatedBetween(from, cal.getTime());
 
     }
