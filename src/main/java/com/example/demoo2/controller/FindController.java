@@ -34,7 +34,6 @@ public class FindController {
         return taskRepository.findAllByStatus(TaskStatus.ARHIV);
     }
 
-
     @GetMapping("/find/date")
     public List<Task> findAllByDate(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date from, @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date to) {
 

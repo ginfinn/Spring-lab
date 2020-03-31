@@ -10,4 +10,4 @@ public class Demoo2Application {
 
         SpringApplication.run(Demoo2Application.class, args);
     }
- }
+}

@@ -13,22 +13,17 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Builder
-
 @Entity
-
 public class TaskStatusHistory {
-
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id ;
+    private Integer id;
     TaskStatus newStatus;
     @Builder.Default
     private Date created = new Date();
+    private Integer taskId;
 
-    private Integer taskId  ;
-    private String nicName;
 }

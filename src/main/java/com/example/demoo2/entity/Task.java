@@ -21,16 +21,13 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String text;
-    //    private String tag;
     private String name;
     private String nicName;
 
-    //    private String client;
+    @Builder.Default
+    private TaskStatus status = TaskStatus.UNDONE;
 
-@Builder.Default
-private TaskStatus status  = TaskStatus.UNDONE;
-
-@Builder.Default
+    @Builder.Default
     private Date created = new Date();
 }
 
