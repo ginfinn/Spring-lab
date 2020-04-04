@@ -9,7 +9,7 @@
  - Url: /create
 -  Type: Get
 -  Desc: create new task
- ##Params
+ #Params
  Name | Desc
  ------------- | -------------
  nicName | Username
@@ -19,7 +19,7 @@
  - Url: /get
 -  Type: Get
 -  Desc: getting all information on a task through its id
- ##Params
+ #Params
  Name | Desc
  ------------- | -------------
  id|Task id 
@@ -27,7 +27,7 @@
  - Url: /change
 -  Type: Get
 -  Desc: set new task status
- ##Params
+ #Params
  Name | Desc
  ------------- | -------------
  id| Task id 
@@ -48,7 +48,7 @@
  - Url: /find/date
 -  Type: Get
 -  Desc: Find all tasks created in a given period of time
- ##Params
+ #Params
  Name | Desc
  ------------- | -------------
  from | dd-MM-yyyy
