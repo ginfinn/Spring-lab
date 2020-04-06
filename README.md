@@ -74,7 +74,7 @@
   
   Type: Get
   
-  Desc: Find all arhiv tasks
+  Desc: Find all arhive tasks
   
   # Find date
   
