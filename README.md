@@ -13,7 +13,7 @@
   
   -Url: /create
   
-  Type: Get
+  Type: Post
   
   Desc: create new task
   
@@ -42,7 +42,7 @@
   
   Url: /change
   
-  Type: Get
+  Type: Put
   
   Desc: set new task status
   

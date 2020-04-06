@@ -7,9 +7,7 @@ import com.example.demoo2.repository.TaskRepository;
 import com.example.demoo2.repository.TaskStatusHistoryRepositoty;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -27,7 +25,7 @@ public class MainController {
     @Autowired
     private TaskRepository taskRepository;
 
-    @GetMapping("create")
+    @PostMapping ("create")
     public Integer createTask(@RequestParam String nicName, @RequestParam String name, @RequestParam String text) {
         TimeZone tz = TimeZone.getDefault();
         val now = LocalDate.now(tz.toZoneId());
@@ -45,7 +43,7 @@ public class MainController {
     }
 
 
-    @GetMapping("/change")
+    @PutMapping ("/change")
     public void changeTask(@RequestParam Integer id, @RequestParam TaskStatus status) {
 
         Task task = taskRepository.findById(id).get();
