@@ -6,10 +6,10 @@
 
 #  Пароль 123 
  
- #Port
+ # Port
   8080
   
-  #Create
+  # Create
   
   -Url: /create
   
@@ -17,7 +17,7 @@
   
   Desc: create new task
   
-  ##Params
+  ## Params
   
   Name | Desc
   ------------- | -------------
@@ -25,7 +25,7 @@
   name | Task name
   text | Task text
   
-  #Get
+  # Get
   
   Url: /get
   
@@ -33,12 +33,12 @@
   
   Desc: getting all information on a task through its id
   
-  ##Params
+  ## Params
   Name | Desc
   ------------- | -------------
   id|Task id 
   
-  #Сhange
+  # Сhange
   
   Url: /change
   
@@ -46,13 +46,13 @@
   
   Desc: set new task status
   
-  ##Params
+  ## Params
   Name | Desc
   ------------- | -------------
   id| Task id 
   status | New task status
   
-  #Find undone
+  # Find undone
   
   Url: /find/undone
   
@@ -60,7 +60,7 @@
   
   Desc: Find all undone tasks
   
-  #Find done
+  # Find done
   
   Url: /find/done
   
@@ -68,15 +68,15 @@
   
   Desc: Find all done tasks
   
-  #Find arhiv
+  # Find arhive
   
-  Url: /find/arhiv
+  Url: /find/arhive
   
   Type: Get
   
   Desc: Find all arhiv tasks
   
-  #Find date
+  # Find date
   
   Url: /find/date
   
@@ -84,7 +84,7 @@
   
   Desc: Find all tasks created in a given period of time
   
-  ##Params
+  ## Params
   
   Name | Desc
   ------------- | -------------

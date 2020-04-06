@@ -19,6 +19,7 @@ public class FindController {
     @Autowired
     private TaskRepository taskRepository;
 
+
     @GetMapping("/find/undone")
     public List<Task> findAllUndone() {
         return taskRepository.findAllByStatus(TaskStatus.UNDONE);
@@ -29,18 +30,18 @@ public class FindController {
         return taskRepository.findAllByStatus(TaskStatus.DONE);
     }
 
-    @GetMapping("/find/arhiv")
+    @GetMapping("/find/arhive")
     public List<Task> findAllArhive() {
-        return taskRepository.findAllByStatus(TaskStatus.ARHIV);
+        return taskRepository.findAllByStatus( TaskStatus.ARHIVE);
     }
 
     @GetMapping("/find/date")
-    public List<Task> findAllByDate(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date from, @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date to) {
+    public List<Task> findAllByCreatedBetween( @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date from, @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date to) {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(to);
         cal.add(Calendar.DATE, 1);
-        return taskRepository.findAllByCreatedBetween(from, cal.getTime());
+        return taskRepository.findAllByCreatedBetween( from, cal.getTime());
 
     }
 

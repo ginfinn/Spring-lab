@@ -17,8 +17,12 @@ import java.util.TimeZone;
 
 @RestController
 public class MainController {
+
+
+
     @Autowired
     private TaskStatusHistoryRepositoty taskStatusHistoryRepositoty;
+
 
     @Autowired
     private TaskRepository taskRepository;
@@ -39,6 +43,7 @@ public class MainController {
     public Task doGet(@RequestParam Integer id) {
         return taskRepository.findById(id).get();
     }
+
 
     @GetMapping("/change")
     public void changeTask(@RequestParam Integer id, @RequestParam TaskStatus status) {
