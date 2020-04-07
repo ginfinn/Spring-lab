@@ -1,6 +1,6 @@
-package com.example.demoo2.entity;
+package com.example.service2.entity;
 
-import com.example.demoo2.TaskStatus;
+import com.example.service2.TaskStatus;
 import lombok.*;
 
 import javax.persistence.Entity;

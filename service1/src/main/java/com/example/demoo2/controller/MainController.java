@@ -1,10 +1,8 @@
 package com.example.demoo2.controller;
 
-import com.example.demoo2.TaskStatus;
 import com.example.demoo2.entity.Task;
-import com.example.demoo2.entity.TaskStatusHistory;
 import com.example.demoo2.repository.TaskRepository;
-import com.example.demoo2.repository.TaskStatusHistoryRepositoty;
+
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +16,6 @@ public class MainController {
 
 
 
-    @Autowired
-    private TaskStatusHistoryRepositoty taskStatusHistoryRepositoty;
 
 
     @Autowired
@@ -43,14 +39,5 @@ public class MainController {
     }
 
 
-    @PutMapping ("/change")
-    public void changeTask(@RequestParam Integer id, @RequestParam TaskStatus status) {
 
-        Task task = taskRepository.findById(id).get();
-
-        task.setStatus(status);
-        val historyTask = TaskStatusHistory.builder().newStatus(status).taskId(task.getId()).build();
-        taskStatusHistoryRepositoty.save(historyTask);
-        taskRepository.save(task);
-    }
 }
