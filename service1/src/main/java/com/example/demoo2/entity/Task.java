@@ -1,6 +1,5 @@
 package com.example.demoo2.entity;
 
-import com.example.demoo2.TaskStatus;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -24,8 +23,7 @@ public class Task {
     private String name;
     private String nicName;
 
-    @Builder.Default
-    private TaskStatus status = TaskStatus.UNDONE;
+
 
     @Builder.Default
     private Date created = new Date();

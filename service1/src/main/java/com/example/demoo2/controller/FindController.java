@@ -1,8 +1,9 @@
 package com.example.demoo2.controller;
 
-import com.example.demoo2.TaskStatus;
+import com.example.demoo2.utils.TaskStatus;
 import com.example.demoo2.entity.Task;
 import com.example.demoo2.repository.TaskRepository;
+import com.example.demoo2.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,14 +19,15 @@ public class FindController {
 
     @Autowired
     private TaskRepository taskRepository;
-
+@Autowired
+private RestTemplateService restTemplateService;
 
     @GetMapping("/find/undone")
-    public List<Task> findAllUndone() {
-        return taskRepository.findAllByStatus(TaskStatus.UNDONE);
+    public List<TaskStatus> findAllUndone() {
+        return restTemplateService.getForObject();
     }
 
-    @GetMapping("/find/done")
+   /* @GetMapping("/find/done")
     public List<Task> findAllDone() {
         return taskRepository.findAllByStatus(TaskStatus.DONE);
     }
@@ -33,7 +35,7 @@ public class FindController {
     @GetMapping("/find/arhive")
     public List<Task> findAllArhive() {
         return taskRepository.findAllByStatus( TaskStatus.ARHIVE);
-    }
+    }*/
 
     @GetMapping("/find/date")
     public List<Task> findAllByCreatedBetween( @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date from, @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date to) {
