@@ -7,9 +7,10 @@
 #  Пароль 123 
  
  # Port
-  8080
+ service1 8080
+ service2 8081
   
-  # Create
+  # Create service 1
   
   -Url: /create
   
@@ -25,7 +26,7 @@
   name | Task name
   text | Task text
   
-  # Get
+  # Get service 1
   
   Url: /get
   
@@ -38,7 +39,7 @@
   ------------- | -------------
   id|Task id 
   
-  # Сhange
+  # Сhange service 2
   
   Url: /change
   
@@ -52,7 +53,7 @@
   id| Task id 
   status | New task status
   
-  # Find undone
+  # Find undone service 1
   
   Url: /find/undone
   
@@ -60,7 +61,7 @@
   
   Desc: Find all undone tasks
   
-  # Find done
+  # Find done service 1
   
   Url: /find/done
   
@@ -68,7 +69,7 @@
   
   Desc: Find all done tasks
   
-  # Find arhive
+  # Find arhive service 1
   
   Url: /find/arhive
   
@@ -76,7 +77,7 @@
   
   Desc: Find all arhive tasks
   
-  # Find date
+  # Find date service 1
   
   Url: /find/date
   
