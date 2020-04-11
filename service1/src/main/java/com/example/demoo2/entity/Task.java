@@ -23,8 +23,6 @@ public class Task {
     private String name;
     private String nicName;
 
-
-
     @Builder.Default
     private Date created = new Date();
 }

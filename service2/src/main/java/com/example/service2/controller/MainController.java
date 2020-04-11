@@ -12,24 +12,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class MainController {
 
     @Autowired
     private TaskStatusHistoryRepositoty taskStatusHistoryRepositoty;
+
     @PutMapping("/change")
     public void changeTask(@RequestParam Integer id, @RequestParam TaskStatus status) {
-
-
         val historyTask = TaskStatusHistory.builder().newStatus(status).taskId(id).build();
         taskStatusHistoryRepositoty.save(historyTask);
+    }
 
-
-        }
     @GetMapping("getStatusHistory")
-    private List<DataTransferObject> doGetStatusHistory(){
-        taskStatusHistoryRepositoty.findAll().stream().map(Integer);
-       return DataTransferObject ;
+    private List<DataTransferObject> doGetStatusHistory() {
+        return taskStatusHistoryRepositoty.findAll().stream().map(taskStatusHistory -> new DataTransferObject(taskStatusHistory.getTaskId(), taskStatusHistory.getNewStatus())).collect(Collectors.toList());
     }
 }

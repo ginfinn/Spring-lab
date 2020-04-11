@@ -1,4 +1,6 @@
 package com.example.demoo2.service;
+
+import com.example.demoo2.utils.DataTransferObject;
 import com.example.demoo2.utils.TaskStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -14,14 +16,26 @@ import java.util.List;
 public class RestTemplateService {
     @Autowired
     private RestTemplate restTemplate;
-    public List<TaskStatus> getForObject() {
-        ResponseEntity<List<TaskStatus>> respons = restTemplate.exchange(
+
+    public List<DataTransferObject> getAllStatus() {
+        ResponseEntity<List<DataTransferObject>> response = restTemplate.exchange(
                 "http://localhost:8081/getStatusHistory",
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<TaskStatus>>() {
+                new ParameterizedTypeReference<List<DataTransferObject>>() {
                 }
         );
-   return respons.getBody();
+        return response.getBody();
+    }
+
+    public void changeStatus(Integer id, TaskStatus status) {
+        restTemplate.exchange("http://localhost:8081/change?id={id}&status={status}",
+                HttpMethod.PUT,
+                null,
+                String.class,
+                id,
+                status
+        );
+
     }
 }

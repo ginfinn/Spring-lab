@@ -17,7 +17,6 @@ import java.util.Date;
 @Entity
 public class TaskStatusHistory {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -25,5 +24,4 @@ public class TaskStatusHistory {
     @Builder.Default
     private Date created = new Date();
     private Integer taskId;
-
 }

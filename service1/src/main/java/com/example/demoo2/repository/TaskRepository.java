@@ -8,11 +8,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Integer> {
-   // public List<Task> findAllByStatus(TaskStatus status);
 
     public List<Task> findAllByCreatedBetween( Date from, Date to);
 
     public List<Task> findAllByNicNameAndNameAndCreatedBetween(String nicName ,String name, Date from, Date to);
-
-
 }
