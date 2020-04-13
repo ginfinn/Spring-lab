@@ -5,6 +5,7 @@ import com.example.demoo2.repository.TaskRepository;
 
 import com.example.demoo2.service.RestTemplateService;
 import com.example.demoo2.utils.TaskStatus;
+import com.example.demoo2.utils.TaskWithStatus;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
 
 @RestController
 public class MainController {
@@ -40,7 +43,12 @@ public class MainController {
     }
 
     @GetMapping("get")
-    public Task doGet(@RequestParam Integer id) {
-        return taskRepository.findById(id).get();
+    public List<Task> doGet(@RequestParam Integer id) {
+        //return taskRepository.findById(id).get();
+        return restTemplateService.getAllStatus().stream()
+                .map(dataTransferObject -> TaskWithStatus.taskWithStatus(
+                        taskRepository.findById(id).get(),
+                        dataTransferObject.getTaskStatus()))
+                .collect(Collectors.toList());
     }
 }

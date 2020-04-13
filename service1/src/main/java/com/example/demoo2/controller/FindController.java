@@ -33,11 +33,13 @@ public class FindController {
 
     @GetMapping("/find/done")
     public List<Task> findAllDone() {
+
         return findByStatus(DONE);
     }
 
     @GetMapping("/find/arhive")
     public List<Task> findAllArhive() {
+
         return findByStatus(ARHIVE);
     }
 
@@ -48,7 +50,13 @@ public class FindController {
         Calendar cal = Calendar.getInstance();
         cal.setTime(to);
         cal.add(Calendar.DATE, 1);
+        /*return restTemplateService.getAllStatus().stream()
+                .map(dataTransferObject -> TaskWithStatus.taskWithStatus(
+                taskRepository.findAllByCreatedBetween(from, cal.getTime()).get(),
+                dataTransferObject.getTaskStatus()))
+                .collect(Collectors.toList());*/
         return taskRepository.findAllByCreatedBetween(from, cal.getTime());
+
 
     }
 
